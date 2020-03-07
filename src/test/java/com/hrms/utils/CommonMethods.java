@@ -2,6 +2,8 @@ package com.hrms.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -306,4 +308,22 @@ public class CommonMethods extends BaseClass {
 			}
 		}
 	}
+	
+	static String jsonFile;
+
+    public static String readJson(String fileName) {
+
+   	 try {
+   		 jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
+
+   	 } catch(IOException e) {
+	 e.printStackTrace();
+
+   	 }
+
+   	 return jsonFile;
+
+   	 
+
+    }
 }
